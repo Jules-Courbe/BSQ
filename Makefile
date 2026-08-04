@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g -I includes
 SRC = srcs/main.c 
 OBJ = $(SRC:.c=.o)
 NAME = bsq
