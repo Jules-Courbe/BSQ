@@ -1,6 +1,10 @@
-#include "utils.h"
+#include "BSQ.h"
 int main(int ac, char **av)
 {
     (void)ac;
-    printf("%s\n", av[1]);
+
+    t_parser *map;
+    
+    filtab(av[1], map);
+
 }

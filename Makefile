@@ -1,6 +1,7 @@
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g -I includes
-SRC = srcs/main.c 
+SRC = srcs/main.c \
+		srcs/parser.c
 OBJ = $(SRC:.c=.o)
 NAME = bsq
 
