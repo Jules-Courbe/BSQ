@@ -31,6 +31,6 @@ typedef struct s_array {
     char    **array;  /*!< pointeur de pointeur to char, stock  */
 }   t_array;
 
-int    filtab(char *av, t_array *map);
+char    *extract_data(char *av, char *buffer);
 
 #endif
