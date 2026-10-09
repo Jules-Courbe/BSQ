@@ -23,11 +23,14 @@ void    malloc_map(char *buffer, t_array *map)
     k++;
     tmp_k = k;
     map->first_line = malloc(sizeof(char) * (k));
+    if (!map->first_line)
+        return;
     while(buffer[i] != '\n')
     {
         map->first_line[i] = buffer[i];
         i++;
     }
+    map->first_line[i] = '\n';
 
     // ligne 
     i = 0;
@@ -44,7 +47,8 @@ void    malloc_map(char *buffer, t_array *map)
         i++;
     }
     map->array = malloc(sizeof(char *) * (ligne + 1)); // + 1 = NULL
-    
+    if (!map->array)
+        return;
     // colonne 
     while (buffer[k] != '\n')
     {
@@ -55,14 +59,14 @@ void    malloc_map(char *buffer, t_array *map)
     {
         k++;
         colonne++;
-    }
+}
+
     i = 0;
     while (i < ligne + 1)
     {
         map->array[i] = malloc(sizeof(char) * colonne);
         i++;
     }
-
     // fill array
     j = 0;
     i = 0;

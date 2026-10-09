@@ -11,8 +11,10 @@
  */
 
 typedef struct s_landmarks {
-    int x; /*!< Coordonnée en abscisse. */
-    int y;  /*!< Coordonnée en ordonnée. */
+    int initial_x; /*!< Coordonnée en abscisse. */
+    int initial_y;  /*!< Coordonnée en ordonnée. */
+    int final_x; /*!< Coordonnée en abscisse. */
+    int final_y;  /*!< Coordonnée en ordonnée. */
 }   t_landmarks;
 
 /**
@@ -38,9 +40,10 @@ typedef struct s_array {
 char    *extract_data(char *av, char *buffer);
 void    skip_first_line(t_array *map, char *buffer);
 void    extract_data_malloc(char *buffer, t_parser map);
-int    parser(t_parser *info, t_array *map);
-void    display(t_array *map, t_parser *info);
+int     parser_buffer(char *buffer);
 void    malloc_map(char *buffer, t_array *map);
-
+int    parser(t_parser *info, t_array *map, char *buffer);
+void    brain(t_array *map, t_parser *info, t_landmarks *gps);
+void    display(t_array *map, t_parser *info);
 
 #endif

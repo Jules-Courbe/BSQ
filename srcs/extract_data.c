@@ -12,16 +12,15 @@ char    *extract_data(char *av, char *buffer)
     fd = open(av, O_RDONLY);
     if (fd == -1)
         return (NULL);
-    while (read_return != 0)
+    while (read_return > 0)
     {
         read_return = read(fd, &c, 1);
-        if (read_return > 0)
-        {
-            buffer[i] = c;
-            i++;
-        }
+        buffer[i] = c;
+        i++;
     }
     buffer[i] = '\0';
+    if (i <= 1)
+        buffer = NULL;
     close(fd);
     return (buffer);
 }

@@ -4,7 +4,9 @@ SRC = srcs/main.c \
 		srcs/extract_data.c\
 		srcs/malloc_initilise.c\
 		srcs/display.c\
+		srcs/algorythm.c\
 		srcs/parser.c\
+		srcs/parser_buffer.c\
 
 OBJ = $(SRC:.c=.o)
 NAME = bsq
@@ -24,3 +26,6 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+play: $(NAME)
+	./bsq map/mapdix.txt
