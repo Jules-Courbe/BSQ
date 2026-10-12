@@ -7,6 +7,7 @@ SRC = srcs/main.c \
 		srcs/algorythm.c\
 		srcs/parser.c\
 		srcs/parser_buffer.c\
+		srcs/free.c\
 
 OBJ = $(SRC:.c=.o)
 NAME = bsq

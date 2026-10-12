@@ -45,5 +45,6 @@ void    malloc_map(char *buffer, t_array *map);
 int    parser(t_parser *info, t_array *map, char *buffer);
 void    brain(t_array *map, t_parser *info, t_landmarks *gps);
 void    display(t_array *map, t_parser *info);
+void    free_malloc(t_array *map);
 
 #endif

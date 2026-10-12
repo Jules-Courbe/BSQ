@@ -73,8 +73,8 @@ void    brain(t_array *map, t_parser *info, t_landmarks *gps)
 {
     gps->initial_x = 0;
     gps->initial_y = 0;
-    gps->final_x = 4;
-    gps->final_y = 4;
+    gps->final_x = 0;
+    gps->final_y = 0;
     // find_square(map, gps);
     fill_biguest_square(map, info, gps);
 }

@@ -37,23 +37,19 @@ int check_lenght(char *buffer, t_parser *info)
     int i;
     int j;
 
-    i =0;
+    i = 0;
     j = 0;
     while (buffer[i] != '\n')
         i++;
     i++;
     while (buffer[i])
     {
-        if (buffer[i] == '\n')
-        {
-            if (j > info->cols || j < info->cols)
-                return (1);
-            j = 0;
-        }
-        if (buffer[i] != '\n')
+        if (buffer[i] == '\n' || buffer[i] == '\0')
             j++;
         i++;
     }
+    if (j > info->rows || j < info->rows)
+        return (1);
     return (0);
 }
 
@@ -105,7 +101,7 @@ int parser(t_parser *info, t_array *map, char *buffer)
     }
 	if (check_lenght(buffer, info) == 1)
     {
-		printf("error with lenght of line");
+		printf("error with lenght : %d of line : %d", info->cols, info->rows);
         return (1);
     }
     if (map_symbols(map, info) == 1)

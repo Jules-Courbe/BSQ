@@ -17,4 +17,5 @@ void    display(t_array *map, t_parser *info)
         j = 0;
         i++;
     }
+    write(1, "\n", 1);
 }

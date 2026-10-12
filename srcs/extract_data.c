@@ -15,9 +15,14 @@ char    *extract_data(char *av, char *buffer)
     while (read_return > 0)
     {
         read_return = read(fd, &c, 1);
-        buffer[i] = c;
-        i++;
+        if (read_return != 0)
+        {    
+            buffer[i] = c;
+            i++;
+        }
     }
+    buffer[i] = '\n';
+    i++;
     buffer[i] = '\0';
     if (i <= 1)
         buffer = NULL;
