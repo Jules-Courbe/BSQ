@@ -4,7 +4,7 @@
 /*
 ◦✅ All lines must have the same length.
 ◦✅ There’s at least one line of at least one box.
-◦ At each end of line, there’s a line break. verifier dans le buffer donc recuperer la longueur dans la premiere ligne et comparer chaque ligne
+◦ At each end of line, there’s a line break.
 ◦✅ The characters on the map can only be those introduced in the first line. 
 ◦ The map is invalid if a character is missing from the first line, or if two characters (of empty, full and obstacle) are identical.
 ◦✅ The characters can be any printable character, even numbers.
@@ -93,6 +93,27 @@ int map_symbols(t_array *map, t_parser *info)
     return (0);
 }
 
+int line_break(char *buffer, t_parser *info)
+{
+    int i;
+    int j;
+
+    j = 0;
+    i = 0;
+    while (buffer[i] != '\n')
+        i++;
+    i++;
+    i += info->cols;
+    while (j < info->rows - 1)
+    {
+        if (buffer[i] != '\n')
+            return (1);
+        j++;
+        i += info->cols + 1;
+    }
+    return (0);
+}
+
 int parser(t_parser *info, t_array *map, char *buffer)
 {
 	if (recover_rows_cols(info, map) == 1)
@@ -112,6 +133,11 @@ int parser(t_parser *info, t_array *map, char *buffer)
     if (check_min_line(map) == 1)
     {
         printf("missing line, need 1 min");
+        return (1);
+    }
+    if (line_break(buffer, info) == 1)
+    {
+        printf("Error with line break");
         return (1);
     }
 	return (0);
