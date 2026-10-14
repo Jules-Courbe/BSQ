@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g -I includes
+CFLAGS = -Wall -Werror -Wextra -g -I includes 
 SRC = srcs/main.c \
 		srcs/extract_data.c\
 		srcs/malloc_initilise.c\
@@ -11,11 +11,12 @@ SRC = srcs/main.c \
 
 OBJ = $(SRC:.c=.o)
 NAME = bsq
+LDFLAGS = -lm
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LDFLAGS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

@@ -62,7 +62,7 @@ void    malloc_map(char *buffer, t_array *map)
 }
 
     i = 0;
-    while (i < ligne + 1)
+    while (i < ligne)
     {
         map->array[i] = malloc(sizeof(char) * colonne);
         i++;
