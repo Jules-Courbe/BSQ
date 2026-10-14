@@ -48,6 +48,7 @@ int check_lenght(char *buffer, t_parser *info)
             j++;
         i++;
     }
+    printf("%d", j);
     if (j > info->rows || j < info->rows)
         return (1);
     return (0);
@@ -62,7 +63,7 @@ int check_min_line(t_array *map)
     count = 0;
     i = 0;
     j = 0;
-    while (map->array[i])
+    while (map->array[i] != NULL)
     {
         while (map->array[i][j])
         {

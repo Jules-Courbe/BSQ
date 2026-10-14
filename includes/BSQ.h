@@ -11,10 +11,15 @@
  */
 
 typedef struct s_landmarks {
+    int merge;
     int initial_x; /*!< Coordonnée en abscisse. */
     int initial_y;  /*!< Coordonnée en ordonnée. */
     int final_x; /*!< Coordonnée en abscisse. */
     int final_y;  /*!< Coordonnée en ordonnée. */
+    int tmp_x; /*!< Coordonnée en abscisse temporaire. */
+    int tmp_y;  /*!< Coordonnée en ordonnée temporaire. */
+    int tmp_x; /*!< Coordonnée en abscisse temporaire. */
+    int tmp_y;  /*!< Coordonnée en ordonnée temporaire. */
 }   t_landmarks;
 
 /**
@@ -45,6 +50,6 @@ void    malloc_map(char *buffer, t_array *map);
 int    parser(t_parser *info, t_array *map, char *buffer);
 void    brain(t_array *map, t_parser *info, t_landmarks *gps);
 void    display(t_array *map, t_parser *info);
-void    free_malloc(t_array *map);
+void    free_malloc(t_array *map, char *buffer);
 
 #endif

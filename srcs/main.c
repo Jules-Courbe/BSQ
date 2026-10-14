@@ -26,9 +26,10 @@ int main(int ac, char **av)
                 return (0);
             brain(&map, &info, &gps);
             display(&map, &info);
-            free_malloc(&map);
+            free_malloc(&map, buffer);
             i++;
         }
+        free(buffer);
         return (0);
     }
 }

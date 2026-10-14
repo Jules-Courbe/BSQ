@@ -1,7 +1,7 @@
 #include "BSQ.h"
 
 // function fill the bigeste square
-void    fill_biguest_square(t_array *map, t_parser *info, t_landmarks *gps)
+void    fill_bigest_square(t_array *map, t_parser *info, t_landmarks *gps)
 {
     int initial_y_tmp;
     
@@ -17,64 +17,72 @@ void    fill_biguest_square(t_array *map, t_parser *info, t_landmarks *gps)
         gps->initial_x++;
     }
 }
-/*
-void    check_bigest_square(t_array *map, t_parser *info, t_landmarks *gps, int x, int y, int count_max)
+
+int	ft_sqrt(int n)
 {
-    //trouver un systeme qui d'agrandir la zone en carre
-    gps->initial_x = x;
-    gps->initial_y = y;
-    int new_count_max;
-    int limite_x;
-    int limite_y;
+	int i;
 
-    limite_x = 0;
-    limite_y = 0;
-    new_count_max = 0;
-    while (map->array[i] != NULL)
-    {
-        if (map->array[i][j] == info->obstacle)
-        {
-            
-        }
-        if (new_count_max > count_max)
-        {
-            gps->initial_x = x;
-            gps->initial_y = y;
-            gps->final_x = i;
-            gps->final_y = j;
-        }
-        new_count_max++;
-
-    }   
+	i = 1;
+    if (n == 0)
+        return (0)
+	while (i != n)
+	{
+		if (n / i == i)
+			return (i);
+		i++;
+	}
+	return (0);
 }
 
-void find_square(t_array *map, t_landmarks *gps)
+int ft_square(int n)
 {
-    int x;
-    int y;
-    int count_max;
-    i = 0;
-    j = 0;
-    count_max = 0;
-    // initialiser des limites a chaque etendues
-    while (map->array[x])
-    {
-        while (map->array[x][y])
-        {
-            check_bigest_square(map, info, gps, x, y, count_max);
-            y++;
-        }
-        y = 0;
-        x++;
-    }
+    return (n * n);
 }
-*/
+
+void    calculate_euclidean_merge(t_landmarks *gps)
+{
+    int delta_x;
+    int delta_y;
+    int merge;
+
+    int delta_x = 0;
+    int delta_y = 0;
+    int merge = 0;
+    // Calcule delta 
+    int delta_x = gps->final_x - gps->initial_x;
+    int delta_y = gps->final_y - gps-> initial_y;
+    // calcule euclidean merge
+    int merge = ft_sqrt(ft_square(delta_x) + ft_square(delta_y);)
+    if (merge > info->merge)
+        info->merge = merge;
+}
+
+void    applicate_methode(t_array *map, t_landmarks *gps, t_parser *info)
+{
+    
+}
+
 void    brain(t_array *map, t_parser *info, t_landmarks *gps)
 {
     gps->initial_x = 0;
     gps->initial_y = 0;
     gps->final_x = 0;
     gps->final_y = 0;
-    // find_square(map, gps);
-    fill_biguest_square(map, info, gps);
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    while (map->array[i])
+    {
+        while (map->array[i][j])
+        {
+
+            j++;
+        }
+        j = 0;
+        i++;
+    }
+    calculate_euclidean_merge(gps, )
+    fill_bigest_square(map, info, gps);
 }

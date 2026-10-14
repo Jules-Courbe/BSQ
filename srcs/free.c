@@ -1,6 +1,6 @@
 #include "BSQ.h"
-
-void    free_malloc(t_array *map)
+// 2 allocs non free puis pour chaque nouvelle map 1 malloc non free 
+void    free_malloc(t_array *map, char *buffer)
 {
     int i;
 
@@ -12,4 +12,5 @@ void    free_malloc(t_array *map)
     }
     free(map->array);
     free(map->first_line);
+    free(buffer);
 }
